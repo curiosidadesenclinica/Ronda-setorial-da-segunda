@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget id="com.curiosidadesenclinica.rondasegunda"
+<widget id="com.curiosidadesenclinica.rondageral"
         version="1.0.0"
         xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
 
-    <name>Ronda Setorial de Segunda</name>
+    <name>Ronda Geral</name>
 
     <description>
         Aplicativo de Ronda Setorial de Segunda da Engenharia Clínica
