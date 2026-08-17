@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -874,8 +875,37 @@ input:focus,select:focus,textarea:focus{border-color:var(--ios-blue);background:
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
+
+<style id="rondaSegundaSplashStyle">
+#appSplash{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:#0B63CE;
+  opacity:1;
+  visibility:visible;
+  transition:opacity .35s ease, visibility .35s ease;
+}
+#appSplash.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+#appSplash img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+}
+</style>
+
 </head>
 <body>
+
+<div id="appSplash" aria-hidden="true">
+  <img src="img/tela_entrada_segunda.png" alt="">
+</div>
+
 <div class="app">
   <header class="header">
     <div class="header-brand">
@@ -4090,5 +4120,25 @@ compactRoundMedia().then(changed=>{if(changed)persistRounds(false)});
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
   
+
+<script id="rondaSegundaSplashScript">
+(function(){
+  function fecharSplash(){
+    const el = document.getElementById('appSplash');
+    if(!el) return;
+    el.classList.add('hide');
+    setTimeout(function(){
+      if(el && el.parentNode) el.parentNode.removeChild(el);
+    }, 400);
+  }
+
+  window.addEventListener('load', function(){
+    setTimeout(fecharSplash, 2000);
+  });
+
+  setTimeout(fecharSplash, 3500);
+})();
+</script>
+
 </body>
 </html>
