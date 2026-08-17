@@ -1,5 +1,4 @@
-
-name: Gerar APK - Ronda Setorial de Segunda
+name: Gerar APK - Ronda Geral
 
 on:
   workflow_dispatch:
@@ -69,23 +68,23 @@ jobs:
         shell: bash
         run: |
           mkdir -p saida
-          cp platforms/android/app/build/outputs/apk/debug/app-debug.apk saida/Ronda_Setorial_de_Segunda.apk
-          ls -lh saida/Ronda_Setorial_de_Segunda.apk
+          cp platforms/android/app/build/outputs/apk/debug/app-debug.apk saida/Ronda_Geral.apk
+          ls -lh saida/Ronda_Geral.apk
 
       - name: Salvar APK na pasta saida da main
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f saida/Ronda_Setorial_de_Segunda.apk
-          git diff --cached --quiet || git commit -m "Atualizar APK da Ronda Setorial de Segunda"
+          git add -f saida/Ronda_Geral.apk
+          git diff --cached --quiet || git commit -m "Atualizar APK da Ronda Geral"
           git push
 
       - name: Publicar APK como artefato
         uses: actions/upload-artifact@v4
         with:
-          name: Ronda-Setorial-de-Segunda-APK
-          path: saida/Ronda_Setorial_de_Segunda.apk
+          name: Ronda-Geral-APK
+          path: saida/Ronda_Geral.apk
           if-no-files-found: error
           retention-days: 14
           compression-level: 0
@@ -97,7 +96,7 @@ jobs:
           path: |
             plugins/
             platforms/android/
-            saida/Ronda_Setorial_de_Segunda.apk
+            saida/Ronda_Geral.apk
           if-no-files-found: error
           retention-days: 14
           compression-level: 0
